@@ -1,0 +1,25 @@
+{
+  "name": "persisty",
+  "version": "1.0.0",
+  "description": "Simple Browser Local storage Abstraction.",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emmo00/persisty.git"
+  },
+  "keywords": [
+    "local storage",
+    "local",
+    "storage",
+    "persisty",
+    "simple",
+    "browser"
+  ],
+  "author": "Emmanuel Nwafor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Emmo00/persisty/issues"
+  },
+  "homepage": "https://github.com/Emmo00/persisty#readme"
+}
