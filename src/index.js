@@ -1,25 +1,30 @@
-const localStorageProxy = new Proxy(
-  {},
-  {
-    get(_, prop) {
-      if (prop === 'clear') {
-        return () => localStorage.clear();
-      }
-      try {
-        return JSON.parse(localStorage.getItem(prop));
-      } catch {
-        return undefined;
-      }
-    },
-    set(_, prop, value) {
-      localStorage.setItem(prop, JSON.stringify(value));
-      return true;
-    },
-    deleteProperty(_, prop) {
-      localStorage.removeItem(prop);
-      return true;
-    },
-  }
-);
+function StorageProxyFactory(StorageObject) {
+  return new Proxy(
+    {},
+    {
+      get(_, prop) {
+        if (prop === 'clear') {
+          return () => StorageObject.clear();
+        }
+        try {
+          return JSON.parse(StorageObject.getItem(prop));
+        } catch {
+          return undefined;
+        }
+      },
+      set(_, prop, value) {
+        StorageObject.setItem(prop, JSON.stringify(value));
+        return true;
+      },
+      deleteProperty(_, prop) {
+        StorageObject.removeItem(prop);
+        return true;
+      },
+    }
+  );
+}
 
-export default localStorageProxy;
+export const persistLocal = StorageProxyFactory(localStorage);
+export const persistSession = StorageProxyFactory(sessionStorage);
+
+export default StorageProxyFactory(localStorage);
