@@ -1,5 +1,5 @@
 declare module 'persisty' {
-  import * as persisty from 'persisty';
+  import persisty, { persistLocal, persistSession } from 'persisty';
 
   /**
    * Clear the localStorage cache
