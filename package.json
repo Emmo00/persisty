@@ -11,7 +11,9 @@
   },
   "keywords": [
     "local storage",
+    "session storage",
     "local",
+    "session",
     "storage",
     "persisty",
     "simple",
