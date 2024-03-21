@@ -1,4 +1,4 @@
-# persisty
+# persisty 💾
 
 Simple Browser Local storage (and Session Storage) Abstraction.
 
