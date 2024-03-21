@@ -1,8 +1,13 @@
 declare module 'persisty' {
-  import persisty, { persistLocal, persistSession } from 'persisty';
+  type StorageProxyObject = {
+    [key: string]: any;
+  } & {
+    clear: () => void;
+  };
 
-  /**
-   * Clear the localStorage cache
-   */
-  function clear(): void;
+  const persisty: StorageProxyObject;
+
+  export const persistLocal: StorageProxyObject;
+  export const persistSession: StorageProxyObject;
+  export default persisty;
 }
