@@ -27,4 +27,4 @@ function StorageProxyFactory(StorageObject) {
 export const persistLocal = StorageProxyFactory(localStorage);
 export const persistSession = StorageProxyFactory(sessionStorage);
 
-export default StorageProxyFactory(localStorage);
+export default persistLocal;
