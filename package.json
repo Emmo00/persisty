@@ -1,6 +1,6 @@
 {
   "name": "persisty",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Simple Browser Local storage Abstraction.",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
