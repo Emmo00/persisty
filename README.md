@@ -1,8 +1,8 @@
 # persisty
 
-Simple Browser Local storage Abstraction.
+Simple Browser Local storage (and Session Storage) Abstraction.
 
-Helps you work with browser localStorage as a regular JavaScript object. It does this by allowing you use regular javascript object syntax.
+Helps you work with browser localStorage (and sessionStorage) as a regular JavaScript object. It does this by allowing you use regular javascript object syntax.
 
 ## Installation
 
@@ -14,12 +14,27 @@ npm install persisty
 
 ## Usage
 
-### import persisty
+## Working with `localStorage`
+
+When working with `localStorage`, you should import it as default like below:
+
+### import `persisty`
 
 ```javascript
 // import persisty
 import persisty from 'persisty';
 ```
+
+or as a named import:
+
+### import `persistLocal`
+
+```javascript
+import { persistLocal } from 'persisty';
+```
+
+> [!NOTE]
+> You have the flexibility to use either the import of `persisty` or `persistLocal`, as they refer to the same functionality.
 
 ### store
 
@@ -30,6 +45,9 @@ const orders = [
 ];
 
 persisty.orders = orders // Also saved in you browser localStorage
+
+// or use persistLocal from named import:
+persistLocal.orders = orders
 ```
 
 ### get
@@ -48,6 +66,48 @@ console.log(persisty.orders);
 
 ```javascript
 delete persisty.orders
+
+console.log(persisty.orders); // null
+```
+
+## Working with `sessionStorage`
+
+Import `persistSession` to interact with  `sessionStorage`.
+
+### import persistSession
+
+```javascript
+// import persisty
+import { persistSession } from 'persisty';
+```
+
+### store
+
+```javascript
+const orders = [
+  { id: 1, quantity: 2 },
+  { id: 2, quantity: 1 },
+];
+
+persistSession.orders = orders // Also saved in you browser sessionStorage
+```
+
+### get
+
+```javascript
+console.log(persistSession.orders);
+// Output:
+// [
+//   { id: 1, quantity: 2 },
+//   { id: 2, quantity: 1 },
+// ];
+
+```
+
+### delete
+
+```javascript
+delete persistSession.orders
 
 console.log(persisty.orders); // null
 ```
